@@ -16,13 +16,45 @@ app.get("/storeseeddata",(req,resp)=>{
     resp.send("All Data Sent Successfully");
 });
 
-app.get('/', (req, resp) => {
+//INDEX
+app.get('/pokemon', (req, resp) => {
     pokemonFetch.fetchAll().then(pokemons=>{
         let page = engine.renderFileSync("index" , {pokemons:pokemons});
         resp.send(page);
     });
 });
 
+//SHOW
+app.get('/pokemon/:id', (req, resp) => {
+    
+});
+
+//NEW
+app.get('/pokemon/new', (req, resp) => {
+    
+});
+
+//EDIT
+app.get('/pokemon/:id/edit', (req, resp) => {
+    
+});
+
+//CREATE
+app.post('/pokemon', (req, resp) => {
+    
+});
+
+//UPDATE
+app.put('/pokemon/:id', (req, resp) => {
+    
+});
+
+//DESTROY
+app.delete('/pokemon/:id', (req, resp) => {
+    
+});
+
+//For custom.css only
 app.get("/views/custom.css" , (req , resp)=>{
     resp.sendFile("custom.css" , { root: path.resolve(__dirname , "views/")});
 });
