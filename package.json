@@ -1,0 +1,25 @@
+{
+  "name": "pokedex",
+  "version": "1.0.0",
+  "description": "[![General Assembly Logo](/ga_cog.png)](https://generalassemb.ly)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/annexus254/pokedex.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/annexus254/pokedex/issues"
+  },
+  "homepage": "https://github.com/annexus254/pokedex#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "liquidjs": "^9.28.5",
+    "mongoose": "^6.0.12",
+    "nodemon": "^2.0.14"
+  }
+}
