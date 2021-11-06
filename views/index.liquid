@@ -19,13 +19,19 @@
         <div class="card-header">
           <div class="row justify-content-start">
             <div class="col-lg-10">
-              <h2>Pokemon Manager</h2>
+              <a href="/pokemon">
+                <h2>Pokemon Manager</h2>
+              </a>
             </div>
             <div class="col-lg-1">
-              <p >Home</p>
+              <a href="/pokemon">
+                <p>Home</p>
+              </a>             
             </div>
             <div class="col-lg-1">
-              <p>Add</p>
+              <a href="/pokemon/new">
+                <p>New</p>
+              </a> 
             </div>
           </div>
         </div>
@@ -36,16 +42,26 @@
             <div class="col-md-3">
               <div class="card" style="width: 18rem;">
                 <div class="card-header">
-                  <h4>{{ pokemon.name }}</h4>
+                  <a href={{ "/pokemon/" | append: pokemon.id }}>
+                    <h4>{{ pokemon.name }}</h4>
+                  </a>
                 </div>
-                <img class="card-img-top" src={{ pokemon.img }} alt={{ pokemon.name }}>
+                <div class="card-body">
+                  <a href={{ "/pokemon/" | append: pokemon.id }}>
+                      <img class="card-img-top" src={{ pokemon.img }} alt={{ pokemon.name }}>
+                  </a>
+                </div>
                 <div class="card-footer text-muted">
                   <div class="row">
                     <div class="col-sm">
-                      <p>Edit</p>
+                      <a href={{ "/pokemon/" | append: pokemon.id | append: '/' | append: 'edit'}}>
+                        <p>Edit</p>
+                      </a>                      
                     </div>
                     <div class="col-sm">
-                      <p>Delete</p>
+                      <a href={{ "javascript:void(0)" }}>
+                        <p id = "delete_pokemon" data-id = {{ pokemon.id }}>Delete</p>
+                      </a> 
                     </div>
                   </div>
                 </div>
