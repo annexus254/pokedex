@@ -39,3 +39,15 @@
   a h4{
     color: black;
   }
+  .list-group-item{
+    font-family: 'Mochiy Pop One', sans-serif;
+    color: dimgray;
+  }
+  .no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .no-gutters > .col{
+      padding-right: 0;
+      padding-left: 0;
+    }

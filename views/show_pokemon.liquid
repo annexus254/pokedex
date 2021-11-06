@@ -1,0 +1,149 @@
+{% render 'base_head' %}
+<div class="row justify-content-start">
+    <div class="col">
+              <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                  <a href={{ "/pokemon/" | append: pokemon.id }}>
+                    <h4>{{ pokemon.name }}</h4>
+                  </a>
+                </div>
+                <div class="card-body">
+                  <a href={{ "/pokemon/" | append: pokemon.id }}>
+                      <img class="card-img-top" src={{ pokemon.img }} alt={{ pokemon.name }}>
+                  </a>
+                </div>
+                <div class="card-footer text-muted">
+                  <div class="row">
+                    <div class="col-sm">
+                      <a href={{ "/pokemon/" | append: pokemon.id | append: '/' | append: 'edit'}}>
+                        <p>Edit</p>
+                      </a>                      
+                    </div>
+                    <div class="col-sm">
+                      <a href={{ "javascript:void(0)" }}>
+                        <p id = "delete_pokemon" data-id = {{ pokemon.id }}>Delete</p>
+                      </a> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+    <div class="col">
+              <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                  <a href={{ "/pokemon/" | append: pokemon.id }}>
+                    <h4>Type</h4>
+                  </a>
+                </div>
+                
+                  <ul class="list-group">
+                    {% for type in pokemon.type %}
+                      <li class="list-group-item">{{ type }}</li>
+                    {% endfor %}
+                  </ul>
+                
+                <div class="card-footer text-muted">
+                  <div class="row">
+                    <div class="col-sm">
+                      <a href={{ "/pokemon/" | append: pokemon.id | append: '/' | append: 'edit'}}>
+                        <p>Edit</p>
+                      </a>                      
+                    </div>
+                    <div class="col-sm">
+                      <a href={{ "javascript:void(0)" }}>
+                        <p id = "delete_pokemon" data-id = {{ pokemon.id }}>Delete</p>
+                      </a> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+    <div class="col">
+              <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                  <a href={{ "/pokemon/" | append: pokemon.id }}>
+                    <h4>Stats</h4>
+                  </a>
+                </div>
+                {% assign stats = pokemon.stats %}
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                      <div class="row no-gutters">
+                        <div class="col-sm-6">
+                          <p class="text-right">Hp:</p>
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="text-left">{{ stats['hp'] }}</p>
+                        </div>
+                      </div>           
+                    </li>
+                    <li class="list-group-item">
+                      <div class="row no-gutters">
+                        <div class="col-sm-6">
+                          <p class="text-right">Attack:</p>
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="text-left">{{ stats['attack'] }}</p>
+                        </div>
+                      </div>           
+                    </li>
+                    <li class="list-group-item">
+                      <div class="row no-gutters">
+                        <div class="col-sm-6">
+                          <p class="text-right">Defense:</p>
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="text-left">{{ stats['defense'] }}</p>
+                        </div>
+                      </div>           
+                    </li>
+                    <li class="list-group-item">
+                      <div class="row no-gutters">
+                        <div class="col-sm-6">
+                          <p class="text-right">Spattack:</p>
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="text-left">{{ stats['spattack'] }}</p>
+                        </div>
+                      </div>           
+                    </li>
+                    <li class="list-group-item">
+                      <div class="row no-gutters">
+                        <div class="col-sm-6">
+                          <p class="text-right">Spdefense:</p>
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="text-left">{{ stats['spdefense'] }}</p>
+                        </div>
+                      </div>           
+                    </li>
+                    <li class="list-group-item">
+                      <div class="row no-gutters">
+                        <div class="col-sm-6">
+                          <p class="text-right">Speed:</p>
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="text-left">{{ stats['speed'] }}</p>
+                        </div>
+                      </div>           
+                    </li>
+                  </ul>
+                
+                <div class="card-footer text-muted">
+                  <div class="row">
+                    <div class="col-sm">
+                      <a href={{ "/pokemon/" | append: pokemon.id | append: '/' | append: 'edit'}}>
+                        <p>Edit</p>
+                      </a>                      
+                    </div>
+                    <div class="col-sm">
+                      <a href={{ "javascript:void(0)" }}>
+                        <p id = "delete_pokemon" data-id = {{ pokemon.id }}>Delete</p>
+                      </a> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+</div>
+{% render 'base_tail' %}

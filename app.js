@@ -19,14 +19,18 @@ app.get("/storeseeddata",(req,resp)=>{
 //INDEX
 app.get('/pokemon', (req, resp) => {
     pokemonFetch.fetchAll().then(pokemons=>{
-        let page = engine.renderFileSync("index" , {pokemons:pokemons});
+        let page =  engine.renderFileSync("index" , {pokemons:pokemons});
         resp.send(page);
     });
 });
 
 //SHOW
 app.get('/pokemon/:id', (req, resp) => {
-    
+    pokemonFetch.fetchById(req.params.id).then(pokemon=>{
+        pokemon     =   pokemon[0];
+        let page =  engine.renderFileSync("show_pokemon" , {pokemon:pokemon});
+        resp.send(page);
+    })
 });
 
 //NEW
