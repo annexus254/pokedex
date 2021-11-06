@@ -30,3 +30,6 @@
     height: 300px;
     background-size: cover;
   }
+  a{
+    color: dimgray;
+  }
