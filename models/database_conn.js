@@ -11,7 +11,7 @@ const pokemonSchema   =   new Schema(
                             name    :   { type : String, required : true},
                             img     :   { type : String, required : true },
                             type    :   [ { type : String }   ],
-                            stat    :   {
+                            stats    :   {
                                             hp : String,
                                             attack : String,
                                             defense : String,
