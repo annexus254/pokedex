@@ -31,12 +31,14 @@
         </div>
         <div class="card-body text-center">
           <div class="row justify-content-start">
+
+            {% for pokemon in pokemons %}
             <div class="col-md-3">
               <div class="card" style="width: 18rem;">
                 <div class="card-header">
-                  <h4>Bulbasaur</h4>
+                  <h4>{{ pokemon.name }}</h4>
                 </div>
-                <img class="card-img-top" src="http://img.pokemondb.net/artwork/bulbasaur.jpg" alt="Card image cap">
+                <img class="card-img-top" src={{ pokemon.img }} alt={{ pokemon.name }}>
                 <div class="card-footer text-muted">
                   <div class="row">
                     <div class="col-sm">
@@ -49,6 +51,8 @@
                 </div>
               </div>
             </div>
+            {% endfor %}
+
         </div>
       </div>
     </div>

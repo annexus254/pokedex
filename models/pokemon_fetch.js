@@ -1,3 +1,7 @@
 const mongoose          =   require("mongoose");
-const db_connection     =   require("./database_conn.js");
+const {pokemonModel}    =   require("./database_conn.js");
+
+module.exports          =   {
+                                fetchAll: ()=>pokemonModel.find({})
+                            }
 
