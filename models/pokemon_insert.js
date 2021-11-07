@@ -16,5 +16,12 @@ module.exports          =   {
                                                        if(err)  throw(err);
                                                        else     callback(result);
                                                    });
+                                               },
+                                deletePokemon:  function(pokemonId , callback)
+                                               {
+                                                   pokemonModel.deleteOne({id:pokemonId} , (err , result)=>{
+                                                        if(err)  throw(err);
+                                                        else     callback(result);  
+                                                    });
                                                }
                             }

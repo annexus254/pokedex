@@ -86,7 +86,9 @@ app.put('/pokemon/:id', (req, resp) => {
 
 //DESTROY
 app.delete('/pokemon/:id', (req, resp) => {
-    
+    let pokemonId   =   req.body.id;
+    pokemonInsert.deletePokemon(pokemonId , console.log);
+    resp.send('0');
 });
 
 //For custom.css only

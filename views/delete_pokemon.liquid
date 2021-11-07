@@ -1,0 +1,34 @@
+<script>
+    $(  _ => 
+        {
+            $(".delete_pokemon").on('click', (e)=>{
+                e.preventDefault();
+                $("#modal-btn").trigger('click');
+            });
+
+            $("#modal-confrm").on('click' , (e)=>{
+                e.preventDefault();
+                let id  =   $(".delete_pokemon").attr('data-id');
+                let url =   "/pokemon/" + id;
+                
+                $.ajax({
+                url: url,
+                method:"DELETE",
+                data:{id : id},
+                success:(resp , status)=>{
+                    console.log(resp)
+                    if(resp == 0)       // 0 indicates success
+                    {
+                        window.location.href    =   '{{ "/pokemon/" }}';
+                    }
+                },
+                error:(xhrObj , status , errorThrown)=>{
+                    console.log(status)
+                },
+                timeout:60000
+                })
+
+            });
+        }
+    );
+</script>

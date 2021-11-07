@@ -1,4 +1,5 @@
 {% render 'base_head' %}
+{% render 'modal' %}
           <div class="row justify-content-start">
 
             {% for pokemon in pokemons %}
@@ -23,7 +24,7 @@
                     </div>
                     <div class="col-sm">
                       <a href={{ "javascript:void(0)" }}>
-                        <p id = "delete_pokemon" data-id = {{ pokemon.id }}>Delete</p>
+                        <p class="delete_pokemon" data-id = {{ pokemon.id }}>Delete</p>
                       </a> 
                     </div>
                   </div>
@@ -32,3 +33,4 @@
             </div>
             {% endfor %}
 {% render 'base_tail' %}
+{% render 'delete_pokemon' %}
