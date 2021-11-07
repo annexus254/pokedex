@@ -35,7 +35,8 @@ app.get('/pokemon/:id', (req, resp) => {
 
 //NEW
 app.get('/pokemon//new', (req, resp) => {
-    
+    let page = engine.renderFileSync("new_pokemon");
+    resp.send(page);
 });
 
 //EDIT
@@ -45,7 +46,20 @@ app.get('/pokemon/:id/edit', (req, resp) => {
 
 //CREATE
 app.post('/pokemon', (req, resp) => {
-    
+    req.body['type']    =   req.body['type'].split(',');
+    req.body['stats']   =   {
+                                hp : req.body['hp'],
+                                attack : req.body['attack'],
+                                defense : req.body['defense'],
+                                spattack : req.body['spattack'],
+                                spdefense : req.body['spdefense'],
+                                speed : req.body['speed'],
+                            }
+    delete req.body['hp']; delete req.body['attack']; delete req.body['defense']; delete req.body['spattack']; delete req.body['spdefense']; delete req.body['speed'];
+    pokemonData         =   req.body;
+    pokemonInsert.createPokemon(pokemonData , console.log);
+    let page = engine.renderFileSync("new_pokemon" , {hidden : " "});
+    resp.send(page);
 });
 
 //UPDATE

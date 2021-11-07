@@ -51,3 +51,9 @@
       padding-right: 0;
       padding-left: 0;
     }
+  form{
+    font-family: 'Mochiy Pop One', sans-serif;
+  }
+  form #form-mini-headers{
+    font-size: 22px;
+  }

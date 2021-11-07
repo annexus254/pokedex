@@ -1,0 +1,80 @@
+{% render 'base_head' %}
+        <div class="row justify-content-center">
+            <div class="card" style="width: 50rem;">
+                <div class="card-header">
+                  <a href={{ "/pokemon//new" }}>
+                    <h4>New Pokemon</h4>
+                  </a>
+                </div>       
+                <form action="/pokemon" method="POST">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <div id="login-alert" class="alert alert-success col-sm-12" {{ hidden | default : "hidden"}}>
+                            <p>Pokemon Added</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" id='form-mini-headers'>Basic Info.</label>
+                        </div>
+                        <div class="form-group text-left">
+                            <label for="exampleInputEmail1">ID:</label>
+                            <input type="text" class="form-control" name="id" placeholder="E.g. 152">
+                        </div>
+                        <div class="form-group text-left">
+                            <label for="exampleInputEmail1">Name:</label>
+                            <input type="text" class="form-control" name="name" placeholder="E.g. Chameleon">
+                        </div>
+                        <div class="form-group text-left">
+                            <label for="exampleInputEmail1">Image URL:</label>
+                            <input type="text" class="form-control" name="img" placeholder="E.g. http[s]://img.pokemondb.net/artwork/bulbasaur.jpg">
+                        </div>
+                        <div class="form-group text-left">
+                            <label for="exampleInputEmail1">Type:</label>
+                            <input type="text" class="form-control" name="type" placeholder="E.g. Grass,Short,Quick">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" id='form-mini-headers'>Stats</label>
+                        </div>
+                        <div class="form-group text-left">
+                            <label for="exampleInputEmail1">Hp:</label>
+                            <input type="text" class="form-control" name="hp" placeholder="E.g. 80">
+                        </div>
+                        <div class="form-group text-left">
+                            <label for="exampleInputEmail1">Attack:</label>
+                            <input type="text" class="form-control" name="attack" placeholder="E.g. 80">
+                        </div>
+                        <div class="form-group text-left">
+                            <label for="exampleInputEmail1">{{"defense" | capitalize}}:</label>
+                            <input type="text" class="form-control" name="defense" placeholder="E.g. 80">
+                        </div>
+                        <div class="form-group text-left">
+                            <label for="exampleInputEmail1">Spattack:</label>
+                            <input type="text" class="form-control" name="spattack" placeholder="E.g. 80">
+                        </div>
+                        <div class="form-group text-left">
+                            <label for="exampleInputEmail1">Spdefense:</label>
+                            <input type="text" class="form-control" name="spdefense" placeholder="E.g. 80">
+                        </div>
+                        <div class="form-group text-left">
+                            <label for="exampleInputEmail1">Speed:</label>
+                            <input type="text" class="form-control" name="speed" placeholder="E.g. 80">
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                    <div class="row">
+                        <div class="col-sm">
+                        <button type="submit" class="btn btn-outline-dark">Submit</button>                                  
+                        </div>
+                    </div>
+                    </div>  
+                </form>
+            </div>
+        </div>
+{% render 'base_tail' %}
+<script>
+    $(
+        setTimeout(()=>{
+            $("#login-alert").attr('hidden' , true);
+        },3000)
+    );
+</script>
