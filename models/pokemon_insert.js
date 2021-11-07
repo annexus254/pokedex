@@ -4,10 +4,17 @@ const {pokemonModel}    =   require("./database_conn");
 module.exports          =   {
                                 createPokemon: function (pokemonData , callback)
                                                {
-                                                pokemonDoc  =   new pokemonModel(pokemonData);
+                                                let pokemonDoc  =   new pokemonModel(pokemonData);
                                                 pokemonDoc.save((err , resp)=>{
                                                     if(err) throw err;
                                                     else    callback(resp);
                                                 });
+                                               },
+                                updatePokemon: function(pokemonData , callback)
+                                               {                                         
+                                                   pokemonModel.updateOne({id:pokemonData['id']} , pokemonData , (err , result)=>{
+                                                       if(err)  throw(err);
+                                                       else     callback(result);
+                                                   });
                                                }
                             }
