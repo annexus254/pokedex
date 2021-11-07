@@ -34,7 +34,7 @@ app.get('/pokemon/:id', (req, resp) => {
 });
 
 //NEW
-app.get('/pokemon/new', (req, resp) => {
+app.get('/pokemon//new', (req, resp) => {
     
 });
 
