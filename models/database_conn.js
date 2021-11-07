@@ -1,7 +1,7 @@
 const mongoose        =   require("mongoose");
 mongoose.Promise      =   global.Promise;
 const connection      =   mongoose.connection;
-const expressApp      =   require("../server.js");
+const expressApp      =   require("../app.js");
 const Schema          =   mongoose.Schema;
 
 //Create a Schema
