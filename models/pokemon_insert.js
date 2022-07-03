@@ -9,9 +9,9 @@ module.exports          =   {
                                                     else    callback(resp);
                                                 });
                                                },
-                                updatePokemon: function(pokemonData , callback)
+                                updatePokemon: function(pokemonId , pokemonData , callback)
                                                {                                         
-                                                   pokemonModel.updateOne({id:pokemonData['id']} , pokemonData , (err , result)=>{
+                                                   pokemonModel.updateOne({id:pokemonId} , pokemonData , (err , result)=>{
                                                        if(err)  throw(err);
                                                        else     callback(result);
                                                    });
