@@ -56,7 +56,7 @@ router.post("/", (req, resp) => {
         speed: req.body['speed']
     }
     pokemonInsert.createPokemon(req.body, console.log);
-    resp.send(0);
+    resp.send('0');
 })
 
 //UPDATE
@@ -71,13 +71,13 @@ router.put("/:id", (req, resp) => {
         speed: req.body['speed']
     }
     pokemonInsert.updatePokemon(req.params.id, req.body, console.log);
-    resp.send(0);
+    resp.send('0');
 })
 
 //DELETE
 router.delete("/:id", (req, resp) => {
     pokemonInsert.deletePokemon(req.params.id, console.log);
-    resp.send(0);
+    resp.send('0');
 })
 
 module.exports = router;
