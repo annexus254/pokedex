@@ -1,4 +1,3 @@
-const mongoose          =   require("mongoose");
 const {pokemonModel}    =   require("./database_conn");
 
 module.exports          =   {

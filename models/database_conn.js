@@ -136,7 +136,7 @@ connection.on("disconnected", () => {
                                             if(error)
                                             {
                                                 console.log("[CRITICAL] Error reconnecting to MongoDB.Closing the server");
-                                                app.close();
+                                                expressApp.close();
                                             }
                                             else
                                                 console.log("[SUCESS] Reconnected to MongoDB Successfully");
