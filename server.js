@@ -24,6 +24,12 @@ app.get('/pokemon', (req, resp) => {
     });
 });
 
+//NEW
+app.get('/pokemon/new', (req, resp) => {
+    let page = engine.renderFileSync("new_pokemon");
+    resp.send(page);
+});
+
 //SHOW
 app.get('/pokemon/:id', (req, resp) => {
     pokemonFetch.fetchById(req.params.id).then(pokemon=>{
@@ -31,12 +37,6 @@ app.get('/pokemon/:id', (req, resp) => {
         let page =  engine.renderFileSync("show_pokemon" , {pokemon:pokemon});
         resp.send(page);
     })
-});
-
-//NEW
-app.get('/pokemon//new', (req, resp) => {
-    let page = engine.renderFileSync("new_pokemon");
-    resp.send(page);
 });
 
 //EDIT
