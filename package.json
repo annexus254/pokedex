@@ -4,7 +4,9 @@
   "description": "[![General Assembly Logo](/ga_cog.png)](https://generalassemb.ly)",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +21,9 @@
   "dependencies": {
     "express": "^4.17.1",
     "liquidjs": "^9.28.5",
-    "mongoose": "^6.0.12",
-    "nodemon": "^2.0.14"
+    "mongoose": "^6.0.12"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.18"
   }
 }
