@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/annexus254/pokedex#readme",
   "dependencies": {
+    "dotenv": "^16.0.1",
     "express": "^4.17.1",
     "liquidjs": "^9.28.5",
     "mongoose": "^6.0.12"
