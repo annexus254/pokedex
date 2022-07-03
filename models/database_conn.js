@@ -109,8 +109,13 @@ mongoose.connect(
     mongoURI,
         
     { useNewUrlParser: true, useUnifiedTopology: true },
-    _ =>{
-      expressApp.listen(process.env.PORT || 5000 , _ => console.log("\nServer started. Listening on port 5000...") );
+    error =>{
+        if(error)
+            console.log("[CRITICAL] Error connecting to MongoDB.Not starting the server.");
+        else{
+                let port = process.env.PORT || 3000;
+                expressApp.listen(port , _ => console.log(`[SUCCESS] Server started.Listening on port ${port}...`) );
+            }
     }
   );
 
@@ -118,17 +123,23 @@ mongoose.connect(
 
 connection.on("error", (err) => console.log(err.message + " is Mongod not running?"));
 
-connection.on("connected", () => console.log("Mongo running at " + mongoURI + "\n\nConnection to the database successfully made!"));
+connection.on("connected", () => console.log("[INFO] MongoDB running at " + `'${mongoURI}'` + "\n[SUCCESS] Connection to the database successfully made!"));
 
 connection.on("disconnected", () => { 
-                                      console.log("Mongo disconnected.Attempting to Reconnect");
+                                      console.log("[WARNING] Mongo disconnected.Attempting to Reconnect");
                                       mongoose.connect(
 
                                         mongoURI,
                                             
                                         { useNewUrlParser: true, useUnifiedTopology: true },
-                                        _ =>{
-                                          console.log("Reconnected Successfully");
+                                        error =>{
+                                            if(error)
+                                            {
+                                                console.log("[CRITICAL] Error reconnecting to MongoDB.Closing the server");
+                                                app.close();
+                                            }
+                                            else
+                                                console.log("[SUCESS] Reconnected to MongoDB Successfully");
                                         }
                                       );
                                     }
